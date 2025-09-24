@@ -5,7 +5,7 @@ CREATE TABLE ProductDetail_1NF (
     CustomerName VARCHAR(100),
     Product VARCHAR(50)
 );
-
+-- Inserting normalized data by manually splitting the products
 INSERT INTO ProductDetail_1NF (OrderID, CustomerName, Product) VALUES
 (101, 'John Doe', 'Laptop'),
 (101, 'John Doe', 'Mouse'),
@@ -16,6 +16,7 @@ INSERT INTO ProductDetail_1NF (OrderID, CustomerName, Product) VALUES
 
 -- Verifying the 1NF table
 SELECT * FROM ProductDetail_1NF ORDER BY OrderID, Product;
+
 
 
 
