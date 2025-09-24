@@ -13,9 +13,26 @@ INSERT INTO ProductDetail_1NF (OrderID, CustomerName, Product) VALUES
 (102, 'Jane Smith', 'Keyboard'),
 (102, 'Jane Smith', 'Mouse'),
 (103, 'Emily Clark', 'Phone');
-
 -- Verifying the 1NF table
 SELECT * FROM ProductDetail_1NF ORDER BY OrderID, Product;
+
+-- Question 2: Transform OrderDetails table to 2NF
+-- Remove partial dependencies by creating separate tables
+-- Step 1: Create Orders table (removes CustomerName dependency on OrderID)
+CREATE TABLE Orders_2NF AS
+SELECT DISTINCT OrderID, CustomerName
+FROM OrderDetails;
+
+-- Step 2: Create OrderItems table (maintains product details with full dependency on composite key)
+CREATE TABLE OrderItems_2NF AS
+SELECT OrderID, Product, Quantity
+FROM OrderDetails;
+
+-- Verify the 2NF structure:
+-- Orders_2NF table: OrderID (PK), CustomerName
+-- OrderItems_2NF table: OrderID (PK, FK), Product (PK), Quantity
+
+
 
 
 
