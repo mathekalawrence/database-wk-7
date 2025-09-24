@@ -1,5 +1,5 @@
 --Database Design and Normalization
-
+-- Question 1: Create 1NF table structure and insert normalized data
 CREATE TABLE ProductDetail_1NF (
     OrderID INT,
     CustomerName VARCHAR(100),
@@ -16,4 +16,7 @@ INSERT INTO ProductDetail_1NF (OrderID, CustomerName, Product) VALUES
 
 -- Verifying the 1NF table
 SELECT * FROM ProductDetail_1NF ORDER BY OrderID, Product;
+
+
+
 
